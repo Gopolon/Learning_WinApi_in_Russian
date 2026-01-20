@@ -3,7 +3,7 @@
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine,
     int nCmdShow)
 {
-    //==========Создание файла и запись==========
+    //==========РЎРѕР·РґР°РЅРёРµ С„Р°Р№Р»Р° Рё Р·Р°РїРёСЃСЊ==========
 
     const wchar_t* WayToFile = L"Files/CreatedFile.txt";
     const wchar_t* TextForWriting = L"This file was created";
@@ -14,7 +14,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
     HANDLE hCreatedFile = CreateFile(WayToFile, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
     WriteFile(hCreatedFile, pText, wcslen(TextForWriting) * sizeof(wchar_t), pNumOfWrB, NULL);
 
-    //==========Открытие файла и чтение==========
+    //==========РћС‚РєСЂС‹С‚РёРµ С„Р°Р№Р»Р° Рё С‡С‚РµРЅРёРµ==========
 
     const wchar_t* WayToFile1 = L"Files/FileToRead.txt";
     wchar_t* ReadedText = new wchar_t[100];
@@ -28,7 +28,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
     ReadFile(hOpenedFile, pReadedText, 100 * sizeof(wchar_t), pNumOfReadedB, NULL);
     WriteFile(hFileForChecking, pReadedText, NumberOfReadedBytes, pNumOfWrB, NULL);
 
-    //==========Возвращение ресурсов системе==========
+    //==========Р’РѕР·РІСЂР°С‰РµРЅРёРµ СЂРµСЃСѓСЂСЃРѕРІ СЃРёСЃС‚РµРјРµ==========
 
     CloseHandle(hCreatedFile);
     CloseHandle(hOpenedFile);

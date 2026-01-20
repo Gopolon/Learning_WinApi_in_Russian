@@ -46,7 +46,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine
         L"Learn to Program Windows",    //                              3. Window text
         WS_OVERLAPPEDWINDOW,            //                              4. Window style
         // Size and position
-        0, 0, 1920, 1080,     //5. x, y, width, height. Здесь можно было и числа указать
+        0, 0, 1920, 1080,     //5. x, y, width, height. Р—РґРµСЃСЊ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ Рё С‡РёСЃР»Р° СѓРєР°Р·Р°С‚СЊ
         NULL,       //                                                  6. Parent window    
         NULL,       //                                                  7. Menu
         hInstance,  //                                                  8. Instance handle
@@ -77,10 +77,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
         PAINTSTRUCT ps;
         HDC hdc = BeginPaint(hWnd, &ps);
-        //Линия рисуется с помощью текущего пера и, если перо является геометрическим, текущей кистью.
+        //Р›РёРЅРёСЏ СЂРёСЃСѓРµС‚СЃСЏ СЃ РїРѕРјРѕС‰СЊСЋ С‚РµРєСѓС‰РµРіРѕ РїРµСЂР° Рё, РµСЃР»Рё РїРµСЂРѕ СЏРІР»СЏРµС‚СЃСЏ РіРµРѕРјРµС‚СЂРёС‡РµСЃРєРёРј, С‚РµРєСѓС‰РµР№ РєРёСЃС‚СЊСЋ.
         //HBRUSH hBrush = CreateSolidBrush(RGB(255, 0, 67));    X
         HPEN hPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));   //V
-        SelectObject(hdc, hPen);                 //hBrush или hPen? -- Pen!
+        SelectObject(hdc, hPen);                 //hBrush РёР»Рё hPen? -- Pen!
 
         MoveToEx(hdc, points[0].x, points[0].y, NULL);
         for (i = 1; i < 100; i++) {
@@ -88,7 +88,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         LineTo(hdc, points[0].x, points[0].y);
 
-        DeleteObject(hPen);                        //hBrush или hPen? -- Pen!
+        DeleteObject(hPen);                        //hBrush РёР»Рё hPen? -- Pen!
         EndPaint(hWnd, &ps);
     }
     break;
