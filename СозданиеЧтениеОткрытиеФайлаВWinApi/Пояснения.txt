@@ -1,0 +1,69 @@
+HANDLE CreateFileA(
+  LPCSTR                lpFileName,
+  DWORD                 dwDesiredAccess,
+  DWORD                 dwShareMode,
+  LPSECURITY_ATTRIBUTES lpSecurityAttributes,
+  DWORD                 dwCreationDisposition,
+  DWORD                 dwFlagsAndAttributes,
+  HANDLE                hTemplateFile
+);
+
+Параметры:
+	LPCSTR                	указатель на строку пути к создаваемому
+				(открываемому)файлу,
+  	DWORD                	режим доступа к файлу
+				обычные варианты GENERIC_READ, GENERIC_WRITE 
+  	DWORD                 	режим совместного доступа ( обычно 0)
+  	LPSECURITY_ATTRIBUTES 	указатель на структуру SECURITY_ATTRIBUTES 
+				определяющую возможность использования файла 
+				процессами -потомками (обычно NULL)
+  	DWORD                 	варианты действия для файлов (существующих) или 
+				не существующих) или устройств
+				для устройств - OPEN_EXISTING
+				для файлов побировые варианты
+				CREATE_ALWAYS, CREATE_NEW, OPEN_ALWAYS, 
+				OPEN_EXISTING, TRUNCATE_EXISTING
+  	DWORD                 	атрибуты и флаги для файла или устройства
+				стандвртное значение FILE_ATTRIBUTE_NORMAL  
+	HANDLE                	валидный десткриптор для файла шаблона с доступом 
+				по чтению (обычное значение NULL)
+
+=================================================================================
+
+BOOL ReadFile(
+  HANDLE       hFile,
+  LPVOID       lpBuffer,
+  DWORD        nNumberOfBytesToRead,
+  LPDWORD      lpNumberOfBytesRead,
+  LPOVERLAPPED lpOverlapped
+);
+
+Параметры:
+
+  	HANDLE       	дескриптор открытого файла,
+  	LPVOID       	указатель на буффер для читаемых байт,
+  	DWORD        	количество читаемых файт,
+ 	LPDWORD      	указатель для записи количества реально прочитанных байт,
+  	LPOVERLAPPED 	указатель на OVERLAPPED структуру, если файл открывался в 
+			режиме  с перекрытием ( для нас NULL)
+
+=================================================================================
+
+BOOL WriteFile(
+  HANDLE       hFile,
+  LPCVOID      lpBuffer,
+  DWORD        nNumberOfBytesToWrite,
+  LPDWORD      lpNumberOfBytesWritten,
+  LPOVERLAPPED lpOverlapped
+);
+
+Параметры:
+
+  	HANDLE       	дескриптор открытого файла,
+  	LPVOID       	указатель на буффер для читаемых байт,
+  	DWORD        	количество читаемых файт,
+ 	LPDWORD      	указатель для записи количества реально записанных байт,
+  	LPOVERLAPPED 	указатель на OVERLAPPED структуру, если файл открывался в 
+			режиме  с перекрытием ( для нас NULL)
+
+=================================================================================
